@@ -3,8 +3,9 @@ import {
   resetPassengerDetails,
   setPassengerDetails
 } from './passenger-details.actions';
+import { PassengerDetails } from './passenger-details.state';
 
-export const passengerDetails = null;
+const passengerDetails: PassengerDetails = null;
 
 const _passengerReducer = createReducer(
   passengerDetails,
