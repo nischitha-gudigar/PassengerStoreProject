@@ -5,9 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { RouterModule } from '@angular/router';
-import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SummaryService } from './summary.service';
+import { PassengerDetailsComponent } from './passenger-summary/passenger-details.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { paymentReducer } from './payment-store/payment-details.reducer';
+import { passengerReducer } from './passenger-store/passenger-details.reducers';
 
 @NgModule({
   imports: [
@@ -17,7 +21,14 @@ import { SummaryService } from './summary.service';
       { path: 'passenger', component: PassengerComponent },
       { path: '', redirectTo: 'passenger', pathMatch: 'full' },
       { path: 'payment', component: PaymentComponent }
-    ])
+    ]),
+    StoreModule.forRoot({
+      passenger: passengerReducer,
+      payment: paymentReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
   declarations: [
     AppComponent,
