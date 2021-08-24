@@ -8,6 +8,8 @@ import {
   ValidatorFn
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { resetPassengerDetails } from '../passenger-store/passenger-details.actions';
 import { SummaryService } from '../summary.service';
 
 @Component({
@@ -21,7 +23,8 @@ export class PassengerComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: Router,
-    private summarySerivice: SummaryService
+    private summarySerivice: SummaryService,
+    private store: Store
   ) {}
 
   private setValidations() {
@@ -62,5 +65,9 @@ export class PassengerComponent implements OnInit {
   goToPayment(details) {
     this.summarySerivice.setDetails(details);
     this.route.navigate(['/payment']);
+  }
+
+  clearData() {
+    this.store.dispatch(resetPassengerDetails());
   }
 }
