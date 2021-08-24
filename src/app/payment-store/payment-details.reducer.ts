@@ -3,15 +3,18 @@ import {
   resetPaymentDetails,
   setPaymentDetails
 } from './payment-details.actions';
+import { PaymentDetails } from './payment-details.state';
 
-const paymentDetails = null;
+const initialState: PaymentDetails = null;
 
 const _paymentReducer = createReducer(
-  paymentDetails,
+  initialState,
   on(setPaymentDetails, (state, action) => {
-    return [...state, action.paymentDetails];
+    return { ...state, ...action };
   }),
-  on(resetPaymentDetails, state => (state = null))
+  on(resetPaymentDetails, (state, action) => {
+    return (state = null);
+  })
 );
 
 export function paymentReducer(state, action) {

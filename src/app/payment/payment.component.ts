@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { setPaymentDetails } from '../payment-store/payment-details.actions';
-import { paymentDetails } from '../payment-store/payment-details.reducer';
+import {
+  resetPaymentDetails,
+  setPaymentDetails
+} from '../payment-store/payment-details.actions';
 
 @Component({
   selector: 'app-payment',
@@ -40,7 +42,11 @@ export class PaymentComponent implements OnInit {
     if (this.paymentForm.valid) {
       alert('Payment Saved successfully');
     }
-    this.store.dispatch(setPaymentDetails(details));
+    let paymentDetails = details;
+    this.store.dispatch(setPaymentDetails(paymentDetails));
   }
-  clearForm() {}
+  clearData() {
+    this.paymentForm.reset;
+    this.store.dispatch(resetPaymentDetails());
+  }
 }
