@@ -68,6 +68,7 @@ export class PassengerComponent implements OnInit {
   }
 
   clearData() {
+    this.passengerForm.reset;
     this.store.dispatch(resetPassengerDetails());
   }
 }

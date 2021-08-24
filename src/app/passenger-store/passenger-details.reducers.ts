@@ -8,12 +8,8 @@ export const passengerDetails = null;
 
 const _passengerReducer = createReducer(
   passengerDetails,
-  on(setPassengerDetails, (state, payload) => {
-    return state + 1;
-  }),
-  on(resetPassengerDetails, (state, payload) => {
-    return state - 1;
-  })
+  on(setPassengerDetails, (state, { passengerDetails }) => passengerDetails),
+  on(resetPassengerDetails, state => (state = null))
 );
 
 export function passengerReducer(state, action) {
