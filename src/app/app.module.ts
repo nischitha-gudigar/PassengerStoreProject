@@ -23,8 +23,8 @@ import { passengerReducer } from './passenger-store/passenger-details.reducers';
       { path: 'payment', component: PaymentComponent }
     ]),
     StoreModule.forRoot({
-      passenger: passengerReducer,
-      payment: paymentReducer
+      passengerDetails: passengerReducer,
+      paymentDetails: paymentReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25
