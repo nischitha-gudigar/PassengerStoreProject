@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { setPaymentDetails } from '../payment-store/payment-details.actions';
 import { paymentDetails } from '../payment-store/payment-details.reducer';
 
 @Component({
@@ -39,7 +40,7 @@ export class PaymentComponent implements OnInit {
     if (this.paymentForm.valid) {
       alert('Payment Saved successfully');
     }
-    this.store.dispatch(paymentDetails(details));
+    this.store.dispatch(setPaymentDetails(details));
   }
   clearForm() {}
 }
