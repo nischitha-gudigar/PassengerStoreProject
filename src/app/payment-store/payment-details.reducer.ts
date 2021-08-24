@@ -4,10 +4,10 @@ import {
   setPaymentDetails
 } from './payment-details.actions';
 
-export const initialState = null;
+export const paymentDetails = null;
 
 const _paymentReducer = createReducer(
-  initialState,
+  paymentDetails,
   on(setPaymentDetails, (state, payload) => {
     return state + 1;
   }),

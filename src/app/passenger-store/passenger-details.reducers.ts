@@ -4,11 +4,9 @@ import {
   setPassengerDetails
 } from './passenger-details.actions';
 
-export const paymentDetails = null;
 export const passengerDetails = null;
 
 const _passengerReducer = createReducer(
-  paymentDetails,
   passengerDetails,
   on(setPassengerDetails, (state, payload) => {
     return state + 1;
