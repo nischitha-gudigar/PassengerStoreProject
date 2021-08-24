@@ -10,7 +10,8 @@ const passengerDetails: PassengerDetails = null;
 const _passengerReducer = createReducer(
   passengerDetails,
   on(setPassengerDetails, (state, { passengerDetails }) => {
-    return { ...state, passengerDetails };
+    console.log(passengerDetails);
+    return { ...passengerDetails };
   }),
   on(resetPassengerDetails, state => (state = null))
 );

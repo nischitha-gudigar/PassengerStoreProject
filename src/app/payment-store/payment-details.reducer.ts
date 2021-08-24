@@ -8,8 +8,8 @@ const paymentDetails = null;
 
 const _paymentReducer = createReducer(
   paymentDetails,
-  on(setPaymentDetails, (state, { paymentDetails }) => {
-    return { ...state, paymentDetails };
+  on(setPaymentDetails, (state, action) => {
+    return [...state, action.paymentDetails];
   }),
   on(resetPaymentDetails, state => (state = null))
 );

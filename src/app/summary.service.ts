@@ -20,6 +20,7 @@ export class SummaryService {
   }
   setDetails(val) {
     this.summaryDetails = val;
+    debugger;
     this.store.dispatch(setPassengerDetails(val));
   }
 }
