@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormArray,
-  AbstractControl,
-  ValidatorFn
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { resetPassengerDetails } from '../passenger-store/passenger-details.actions';
@@ -54,15 +47,7 @@ export class PassengerComponent implements OnInit {
     this.setValidations();
   }
 
-  save() {
-    console.log(this.passengerForm);
-    if (!this.passengerForm.valid) {
-      alert('Please fill required fields');
-    } else {
-      alert('Passenger Details Added successfully');
-    }
-  }
-  goToPayment(details) {
+  saveForm(details) {
     this.summarySerivice.setDetails(details);
     this.route.navigate(['/payment']);
   }

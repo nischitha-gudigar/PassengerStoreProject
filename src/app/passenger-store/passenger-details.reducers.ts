@@ -5,15 +5,17 @@ import {
 } from './passenger-details.actions';
 import { PassengerDetails } from './passenger-details.state';
 
-const passengerDetails: PassengerDetails = null;
+const initialState: PassengerDetails = null;
 
 const _passengerReducer = createReducer(
-  passengerDetails,
+  initialState,
   on(setPassengerDetails, (state, { passengerDetails }) => {
     console.log(passengerDetails);
-    return { ...passengerDetails };
+    return { ...state, passengerDetails };
   }),
-  on(resetPassengerDetails, state => (state = null))
+  on(resetPassengerDetails, (state, action) => {
+    return { ...state, action };
+  })
 );
 
 export function passengerReducer(state, action) {

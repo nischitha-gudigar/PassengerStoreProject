@@ -6,7 +6,7 @@
       </div>
 
       <div class="card-body">
-        <form (ngSubmit)="save()" [formGroup]="passengerForm">
+        <form (ngSubmit)="saveForm(passengerForm.value);" [formGroup]="passengerForm">
           <div class="form-group row mb-2">
             <label class="col-md-2 col-form-label" for="firstNameId"
               >First Name</label>
@@ -129,23 +129,13 @@
           <div class="form-group row mb-2">
             <div class="offset-md-2 col-md-4">
               <button
-                class="btn btn-primary mr-3"
+                class="btn btn-success mr-3"
                 type="submit"
-                style="width:80px"
-                [title]="passengerForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
-              >
-                Save
-              </button>
-              &nbsp;
-              <button
-                class="btn btn-secondary mr-3"
-                type="submit"
-                (click)="goToPayment(passengerForm.value);"
                 [title]="passengerForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
                 [disabled]="!passengerForm.valid"
               >
                 Continue
-              </button>
+              </button>&nbsp;
               <button class="btn btn-warning mr-3"
               type="button"
               style="width:80px"

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { setPassengerDetails } from './passenger-store/passenger-details.actions';
+import { PassengerDetails } from './passenger-store/passenger-details.state';
 
 @Injectable()
 export class SummaryService {
@@ -20,7 +21,7 @@ export class SummaryService {
   }
   setDetails(val) {
     this.summaryDetails = val;
-    debugger;
-    this.store.dispatch(setPassengerDetails(val));
+    let passengerDetails = val;
+    this.store.dispatch(setPassengerDetails(passengerDetails));
   }
 }
