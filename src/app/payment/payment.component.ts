@@ -39,13 +39,11 @@ export class PaymentComponent implements OnInit {
     this.setValidations();
   }
   savePayment(details) {
-    if (this.paymentForm.valid) {
-      alert('Payment Saved successfully');
-    }
     let paymentDetails = details;
     this.store.dispatch(setPaymentDetails(paymentDetails));
+    alert('Payment details saved successfully');
   }
-  clearData() {
+  clearForm() {
     this.paymentForm.reset;
     this.store.dispatch(resetPaymentDetails());
   }
