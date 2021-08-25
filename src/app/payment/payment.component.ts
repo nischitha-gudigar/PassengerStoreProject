@@ -5,6 +5,7 @@ import {
   resetPaymentDetails,
   setPaymentDetails
 } from '../payment-store/payment-details.actions';
+import { PaymentDetails } from '../payment-store/payment-details.state';
 
 @Component({
   selector: 'app-payment',
@@ -39,8 +40,8 @@ export class PaymentComponent implements OnInit {
     this.setValidations();
   }
   savePayment(details) {
-    let paymentDetails = details;
-    this.store.dispatch(setPaymentDetails(paymentDetails));
+    let paymentDetails: PaymentDetails = details;
+    this.store.dispatch(setPaymentDetails({ paymentDetails }));
     alert('Payment details saved successfully');
   }
   clearForm() {
