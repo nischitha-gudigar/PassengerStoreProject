@@ -10,7 +10,7 @@ const initialState: PassengerDetails = null;
 const _passengerReducer = createReducer(
   initialState,
   on(setPassengerDetails, (state, action) => {
-    return { ...state, ...action };
+    return { ...state, ...action.passengerDetails };
   }),
   on(resetPassengerDetails, (state, action) => {
     return (state = null);

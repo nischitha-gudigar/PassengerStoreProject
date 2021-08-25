@@ -87,30 +87,28 @@
 
 
           <div class="form-group row mb-2">
-            <div class="offset-md-2 col-md-4">
+            <div>
               <button class="btn btn-primary mr-3"
                 type="submit"
-                style="width:80px" (click)="savePayment(paymentForm.value);"
+               (click)="savePayment(paymentForm.value);"
                 [title]="paymentForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
 
-          >
-          Save
-        </button>&nbsp;
+              >
+              Save
+              </button>&nbsp;
               <button class="btn btn-warning mr-3"
-        type="button"
-        style="width:80px"
-        (click)="clearForm()"
-  >
-  Reset
-</button>
+              type="button"
+              (click)="clearForm()"
+              >
+              Reset
+              </button>
               <button class="btn btn-secondary mr-3"
                 type="button"
-                style="width:80px"
                 routerLink="/passenger"
 
-          >
-          Back
-        </button>
+              >
+              Back
+              </button>
             </div>
           </div>
         </form>
