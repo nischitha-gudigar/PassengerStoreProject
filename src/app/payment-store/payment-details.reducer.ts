@@ -10,7 +10,7 @@ const initialState: PaymentDetails = null;
 const _paymentReducer = createReducer(
   initialState,
   on(setPaymentDetails, (state, action) => {
-    return { ...state, ...action };
+    return { ...state, ...action.paymentDetails };
   }),
   on(resetPaymentDetails, (state, action) => {
     return (state = null);
