@@ -16,10 +16,10 @@ export class SummaryService {
     return this._summaryDetails;
   }
 
-  getDetails() {
+  public getDetails() {
     return this.summaryDetails;
   }
-  setDetails(value) {
+  public setDetails(value): void {
     this.summaryDetails = value;
     let passengerDetails: PassengerDetails = value;
     this.store.dispatch(setPassengerDetails({ passengerDetails }));

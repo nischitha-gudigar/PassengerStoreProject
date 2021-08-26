@@ -20,7 +20,7 @@ export class PassengerComponent implements OnInit {
     private store: Store
   ) {}
 
-  private setValidations() {
+  private setValidations(): void {
     const firstNameValidator = [Validators.required, Validators.maxLength(12)];
     const lastNameValidator = [Validators.required, Validators.maxLength(10)];
     const emailValidator = [Validators.required, Validators.email];
@@ -47,12 +47,12 @@ export class PassengerComponent implements OnInit {
     this.setValidations();
   }
 
-  saveForm(details) {
+  public saveForm(details) {
     this.summarySerivice.setDetails(details);
     this.route.navigate(['/payment']);
   }
 
-  clearData() {
+  public clearData() {
     this.passengerForm.reset;
     this.store.dispatch(resetPassengerDetails());
   }

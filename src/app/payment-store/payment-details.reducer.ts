@@ -7,7 +7,7 @@ import { PaymentDetails } from './payment-details.state';
 
 const initialState: PaymentDetails = null;
 
-const _paymentReducer = createReducer(
+export const paymentReducer = createReducer(
   initialState,
   on(setPaymentDetails, (state, action) => {
     return { ...state, ...action.paymentDetails };
@@ -16,7 +16,3 @@ const _paymentReducer = createReducer(
     return (state = null);
   })
 );
-
-export function paymentReducer(state, action) {
-  return _paymentReducer(state, action);
-}

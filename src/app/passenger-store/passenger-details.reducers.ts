@@ -7,7 +7,7 @@ import { PassengerDetails } from './passenger-details.state';
 
 const initialState: PassengerDetails = null;
 
-const _passengerReducer = createReducer(
+export const passengerReducer = createReducer(
   initialState,
   on(setPassengerDetails, (state, action) => {
     return { ...state, ...action.passengerDetails };
@@ -16,7 +16,3 @@ const _passengerReducer = createReducer(
     return (state = null);
   })
 );
-
-export function passengerReducer(state, action) {
-  return _passengerReducer(state, action);
-}

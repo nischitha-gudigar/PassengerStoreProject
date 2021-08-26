@@ -14,9 +14,9 @@ import { PaymentDetails } from '../payment-store/payment-details.state';
 })
 export class PaymentComponent implements OnInit {
   constructor(private fb: FormBuilder, private store: Store) {}
-  paymentForm: FormGroup;
+  private paymentForm: FormGroup;
 
-  private setValidations() {
+  private setValidations(): void {
     const creditcardValidator = [
       Validators.required,
       Validators.pattern('^[0-9]{16}$')
@@ -39,12 +39,12 @@ export class PaymentComponent implements OnInit {
     });
     this.setValidations();
   }
-  savePayment(details) {
+  public savePayment(details): void {
     let paymentDetails: PaymentDetails = details;
     this.store.dispatch(setPaymentDetails({ paymentDetails }));
     alert('Payment details saved successfully');
   }
-  clearForm() {
+  public clearForm(): void {
     this.paymentForm.reset;
     this.store.dispatch(resetPaymentDetails());
   }
